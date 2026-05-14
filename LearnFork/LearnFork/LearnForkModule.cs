@@ -56,6 +56,15 @@ public class ApiKey
 
         return true;
     }
+
+    // Приховує частину API-ключа для безпечного відображення
+    public string HideKey()
+    {
+        if (string.IsNullOrEmpty(Value) || Value.Length < 8)
+            return "****";
+
+        return Value.Substring(0, 4) + "****" + Value.Substring(Value.Length - 4);
+    }
 }
 
 public class AIProvider
